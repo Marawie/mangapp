@@ -2,16 +2,19 @@ package user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
+@Builder
 public class User implements UserDetails {
 
     @Id
@@ -40,6 +43,11 @@ public class User implements UserDetails {
 
     @Column(nullable = false)
     private int age;
+
+    private Sex sex;
+
+    @OneToMany(mappedBy = "user")
+    private List<Token> tokens;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
