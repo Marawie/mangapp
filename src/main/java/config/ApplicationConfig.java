@@ -15,7 +15,7 @@ import user.UserRepository;
 
 @Configuration
 @RequiredArgsConstructor
-public class ApplicationConfig {
+class ApplicationConfig {
     private final UserRepository userRepository;
 
     @Bean

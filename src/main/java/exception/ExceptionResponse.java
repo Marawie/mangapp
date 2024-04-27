@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class ExceptionResponse {
+class ExceptionResponse {
     private int status;
     private String message;
 }

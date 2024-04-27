@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 public enum ExceptionEnum {
 
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "User not found in our database"),
-
     ;
 
     private final HttpStatus httpStatus;

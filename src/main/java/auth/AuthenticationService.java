@@ -22,7 +22,7 @@ import static exception.ExceptionEnum.USER_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
-public class AuthenticationService {
+class AuthenticationService {
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
