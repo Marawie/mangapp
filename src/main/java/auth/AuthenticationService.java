@@ -35,8 +35,7 @@ class AuthenticationService {
     @Value("${token-activate.account}")
     private int expirationConfirmToken;
 
-    @Transactional
-    public AuthenticationResponse register(RegisterRequest request) {
+     AuthenticationResponse register(RegisterRequest request) {
 
         User user = User.builder()
                 .firstname(request.getFirstname())
@@ -58,7 +57,7 @@ class AuthenticationService {
                 .build();
     }
 
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+     AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -81,7 +80,7 @@ class AuthenticationService {
         }
     }
 
-    public void refreshToken(
+     void refreshToken(
             HttpServletRequest request,
             HttpServletResponse response) throws IOException {
 

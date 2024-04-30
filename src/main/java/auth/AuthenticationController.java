@@ -16,6 +16,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 class AuthenticationController {
 
+
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
