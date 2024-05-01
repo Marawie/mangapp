@@ -11,7 +11,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import user.*;
 
 import java.io.IOException;
@@ -35,7 +34,7 @@ class AuthenticationService {
     @Value("${token-activate.account}")
     private int expirationConfirmToken;
 
-     AuthenticationResponse register(RegisterRequest request) {
+    AuthenticationResponse register(RegisterRequest request) {
 
         User user = User.builder()
                 .firstname(request.getFirstname())
@@ -57,7 +56,7 @@ class AuthenticationService {
                 .build();
     }
 
-     AuthenticationResponse authenticate(AuthenticationRequest request) {
+    AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
@@ -80,7 +79,7 @@ class AuthenticationService {
         }
     }
 
-     void refreshToken(
+    void refreshToken(
             HttpServletRequest request,
             HttpServletResponse response) throws IOException {
 

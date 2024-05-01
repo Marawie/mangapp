@@ -21,15 +21,10 @@ public class RegistryWorkHours {
     @JoinColumn(name = "teamGroup_id", referencedColumnName = "id")
     private TeamGroup teamGroup;
 
-    private int identityOfTask;// przemyslec czy to tez nie bedzie encja/ raczej bedzie
-
     private LocalDate dayToRegistry;
 
     private double hours;
 
     private String commentary;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "typeWork_id", referencedColumnName = "id")
-    private TypeWork typeWork;
 }

@@ -7,15 +7,17 @@ import lombok.Data;
 
 @Entity
 @Data
-@Builder
 @AllArgsConstructor
-public class TypeWork {
+@Builder
+public class TaskIdentity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nameOfWorkType;
+    private String taskIdentityName;
+
+    private int taskIdentity;
 
     @ManyToOne
     @JoinColumn(name = "teamGroup_id")

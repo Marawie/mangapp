@@ -19,9 +19,13 @@ public class TeamGroup {
 
     private String teamGroupName;
 
-    @OneToMany(mappedBy = "teamGroup")
+    @OneToMany(mappedBy = "teamGroup", cascade = CascadeType.ALL)
     private Set<TypeWork> typeWorks;
 
-    @OneToOne(mappedBy = "teamGroup")
+    @OneToMany(mappedBy = "teamGroup", cascade = CascadeType.ALL)
+    private Set<TaskIdentity> taskIdentities;
+
+
+    @OneToOne(mappedBy = "teamGroup", cascade = CascadeType.ALL)
     private RegistryWorkHours registryWorkHours;
 }
