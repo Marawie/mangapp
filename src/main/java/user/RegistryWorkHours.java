@@ -27,4 +27,7 @@ public class RegistryWorkHours {
 
     private String commentary;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

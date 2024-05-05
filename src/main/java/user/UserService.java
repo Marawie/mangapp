@@ -1,5 +1,5 @@
 package user;
 
-public interface UserService {
-    void registryWorkHours(RegistryWorkHoursRequest reportWorkHoursRequest);
+interface UserService {
+    void registryWorkHours(RegistryWorkHoursRequest reportWorkHoursRequest,TypeWorkRequest typeWorkRequest, TaskIdentityRequest taskIdentityRequest, TeamGroupRequest teamGroupRequest, Long id);
 }

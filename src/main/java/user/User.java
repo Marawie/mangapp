@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -48,6 +49,9 @@ public class User implements UserDetails {
 
     @OneToMany(mappedBy = "user")
     private List<Token> tokens;
+
+    @OneToMany(mappedBy = "user")
+    private Set<RegistryWorkHours> registryWorkHoursSet;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
