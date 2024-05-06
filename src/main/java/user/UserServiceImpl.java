@@ -64,7 +64,20 @@ class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto updateUser(UpdateUserRequest updateUserRequest, Long id) {
-        return null;
+    public UserDto updateUser(UserDto updateUserRequest, Long id) {
+
+        final User user = userRepository.findById(id).orElseThrow(
+                () -> new RestException(ExceptionEnum.USER_NOT_FOUND));
+
+        user.setAge(updateUserRequest.age());
+        user.setEmail(updateUserRequest.email());
+        user.setFirstname(updateUserRequest.firstname());
+        user.setLastname(updateUserRequest.lastname());
+        user.setRole(updateUserRequest.role());
+        user.setSex(updateUserRequest.sex());
+
+        userRepository.save(user);
+
+        return UserMapper.INSTANCE.userToUserDto(user);
     }
 }

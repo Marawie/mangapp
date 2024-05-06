@@ -7,5 +7,5 @@ interface UserService {
                            TeamGroupRequest teamGroupRequest,
                            Long id);
 
-    UserDto updateUser(UpdateUserRequest updateUserRequest, Long id);
+    UserDto updateUser(UserDto updateUserRequest, Long id);
 }

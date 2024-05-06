@@ -1,4 +1,0 @@
-package user;
-
-record UpdateUserRequest() {
-}
