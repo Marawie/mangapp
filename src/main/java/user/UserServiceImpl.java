@@ -28,21 +28,21 @@ class UserServiceImpl implements UserService {
         final User user = userRepository.findById(id).orElseThrow(
                 () -> new RestException(ExceptionEnum.USER_NOT_FOUND));
 
-       final TaskIdentity taskIdentity = TaskIdentity.builder()
-               .taskIdentityName(taskIdentityRequest.getTaskIdentityName())
-               .taskIdentity(taskIdentityRequest.getTaskIdentity())
-               .build();
+        final TaskIdentity taskIdentity = TaskIdentity.builder()
+                .taskIdentityName(taskIdentityRequest.taskIdentityName())
+                .taskIdentity(taskIdentityRequest.taskIdentity())
+                .build();
 
-       taskIdentityRepository.save(taskIdentity);
+        taskIdentityRepository.save(taskIdentity);
 
-       final TypeWork typeWork = TypeWork.builder()
-               .nameOfWorkType(typeWorkRequest.getNameOfWorkType())
-               .build();
+        final TypeWork typeWork = TypeWork.builder()
+                .nameOfWorkType(typeWorkRequest.nameOfWorkType())
+                .build();
 
-       typeWorkRepository.save(typeWork);
+        typeWorkRepository.save(typeWork);
 
         final TeamGroup teamGroup = TeamGroup.builder()
-                .teamGroupName(teamGroupRequest.getTeamGroupName())
+                .teamGroupName(teamGroupRequest.teamGroupName())
                 .taskIdentities(Set.of(taskIdentity))
                 .typeWorks(Set.of(typeWork))
                 .build();
@@ -51,9 +51,9 @@ class UserServiceImpl implements UserService {
 
         final RegistryWorkHours registryWorkHours = RegistryWorkHours.builder()
                 .user(user)
-                .commentary(reportWorkHoursRequest.getCommentary())
-                .hours(reportWorkHoursRequest.getHours())
-                .dayToRegistry(reportWorkHoursRequest.getDayToRegistry())
+                .commentary(reportWorkHoursRequest.commentary())
+                .hours(reportWorkHoursRequest.hours())
+                .dayToRegistry(reportWorkHoursRequest.dayToRegistry())
                 .teamGroup(teamGroup)
                 .build();
 
@@ -61,5 +61,10 @@ class UserServiceImpl implements UserService {
 
         user.setRegistryWorkHoursSet(Set.of(registryWorkHours));
         userRepository.save(user);
+    }
+
+    @Override
+    public UserDto updateUser(UpdateUserRequest updateUserRequest, Long id) {
+        return null;
     }
 }
