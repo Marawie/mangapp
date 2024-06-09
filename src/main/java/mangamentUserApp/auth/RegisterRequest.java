@@ -17,5 +17,4 @@ class RegisterRequest {
     private String email;
     private String password;
     private Sex sex;
-    private String token;
 }
